@@ -5,18 +5,21 @@ public class Creature
 	private Limb[] limbs;
 	private RotationPlan rotPlan;
 	private int fitness;
+	private boolean fitnessCalculated;
 	
 	public Creature(LimbGene limbGene, RotationPlanGene rotGene)
 	{
-		fitness = null;
+		fitness = 0;
+		fitnessCalculated = false;
 	}
 	
 	public int getFitness()
 	{
-		if (fitness == null)
+		if (!fitnessCalculated)
 		{
 			fitness = 0;
 			// TODO: Calculate fitness
+			fitnessCalculated = true;
 		}
 		return fitness;
 	}

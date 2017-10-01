@@ -42,7 +42,7 @@ public class Limb extends LimbAnchor
 	// Set the world orientation in regards to the relative and parent orientations
 	private void updateWorldOrientation()
 	{
-		worldOrientation = normalizeOrientation(parent.getWorldOrientation() + getRelativeOrientation());
+		worldOrientation = normalizeOrientation((byte)(parent.getWorldOrientation() + getRelativeOrientation()));
 	}
 	
 	public byte getRelativeOrientation()
@@ -64,7 +64,7 @@ public class Limb extends LimbAnchor
 	// Set the relative orientation in regards to the world and parent orientations
 	private void updateRelativeOrientation()
 	{
-		relativeOrientation = normalizeOrientation(getWorldOrientation() - parent.getWorldOrientation());
+		relativeOrientation = normalizeOrientation((byte)(getWorldOrientation() - parent.getWorldOrientation()));
 	}
 	
 	// Normalize a given number to be used as a valid orientation (a positive number between 0 and 3 inclusive)

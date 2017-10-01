@@ -27,7 +27,12 @@ public class LimbAnchor
 		Iterator<Limb> itr = attachedChildren.iterator();
 		while (itr.hasNext())
 		{
-			itr.next().updateWorldOrientation();
+			itr.next().parentRotated();
 		}
+	}
+	
+	public byte getWorldOrientation()
+	{
+		return Limb.ORIENTATION_NORTH;
 	}
 }
