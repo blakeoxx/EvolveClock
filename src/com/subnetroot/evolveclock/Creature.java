@@ -7,7 +7,7 @@ public class Creature
 	private int fitness;
 	private boolean fitnessCalculated;
 	
-	public Creature(LimbGene limbGene, RotationPlanGene rotGene)
+	public Creature(LimbDNA limbDNA, RotationPlanGene rotGene)
 	{
 		fitness = 0;
 		fitnessCalculated = false;
