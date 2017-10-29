@@ -35,4 +35,9 @@ public class LimbAnchor
 	{
 		return Limb.ORIENTATION_NORTH;
 	}
+	
+	public LimbAnchor getParent()
+	{
+		return null;
+	}
 }

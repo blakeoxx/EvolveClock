@@ -67,6 +67,11 @@ public class Limb extends LimbAnchor
 		relativeOrientation = normalizeOrientation((byte)(getWorldOrientation() - parent.getWorldOrientation()));
 	}
 	
+	public LimbAnchor getParent()
+	{
+		return parent;
+	}
+	
 	// Normalize a given number to be used as a valid orientation (a positive number between 0 and 3 inclusive)
 	private byte normalizeOrientation(byte orientation)
 	{
