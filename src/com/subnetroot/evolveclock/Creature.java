@@ -21,7 +21,7 @@ public class Creature
 			else limbs[i] = new Limb(boardAnchors[limbDNA.getLimbParent(i)-LimbDNA.ATTACHMENT_BOARD_MIN], limbDNA.getLimbOrientation(i));
 		}
 		
-		rotPlan = new RotationPlan(rotPlan);
+		this.rotPlan = new RotationPlan(rotPlan);
 		fitness = 0;
 		fitnessCalculated = false;
 	}
