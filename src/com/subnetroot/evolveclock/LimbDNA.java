@@ -7,10 +7,10 @@ public class LimbDNA
 {
 	private ArrayList<Byte> limbList;		// An array list of bytes representing each limb of a creature. Bit 1 is reserved for signing because Java doesn't support unsigned primitives, bits[2-6] = attachment (index of parent in array list, or board anchor reference if greater than 15), bits[7-8] = initial world orientation
 	
-	private static final byte LIMB_MAX = (byte)(Math.pow(2,4)-1);		// The maximum number of limbs a creature can have (15). 0b00000 to 0b01111, with the first bit indicating that this attachment is a limb
-	private static final byte ATTACHMENT_MAX = (1 << 4) + 6;			// The maximum value of a 5-bit attachment mask. 0b10001 to 0b10110, with the first bit indicating that this attachment is the board
-	private static final byte ATTACHMENT_BOARD_MIN = (1 << 4) + 1;		// The minimum value of a 5-bit attachment mask representing a board attachment. 0b10001
-	private static final byte ATTACHMENT_BOARD_MAX = (1 << 4) + 6;		// The maximum value of a 5-bit attachment mask representing a board attachment. 0b10110
+	public static final byte LIMB_MAX = (byte)(Math.pow(2,4)-1);		// The maximum number of limbs a creature can have (15). 0b00000 to 0b01111, with the first bit indicating that this attachment is a limb
+	public static final byte ATTACHMENT_MAX = (1 << 4) + 6;			// The maximum value of a 5-bit attachment mask. 0b10001 to 0b10110, with the first bit indicating that this attachment is the board
+	public static final byte ATTACHMENT_BOARD_MIN = (1 << 4) + 1;		// The minimum value of a 5-bit attachment mask representing a board attachment. 0b10001
+	public static final byte ATTACHMENT_BOARD_MAX = (1 << 4) + 6;		// The maximum value of a 5-bit attachment mask representing a board attachment. 0b10110
 	
 	public LimbDNA()
 	{
@@ -75,15 +75,15 @@ public class LimbDNA
 		return true;
 	}
 	
-	public int[] getLimbChildren(int index)
+	public byte[] getLimbChildren(int index)
 	{
-		int[] children = new int[limbList.size()];
+		byte[] children = new byte[limbList.size()];
 		
 		int childCount = 0;
 		for (int i=0; i<limbList.size(); i++)
 		{
-			byte thisLimb = limbList.get(i);
-			if (thisLimb >> 2 == index) children[childCount++] = i;
+			byte thisLimb = limbList.get(i).byteValue();
+			if (thisLimb >> 2 == index) children[childCount++] = (byte)i;
 		}
 		
 		return Arrays.copyOf(children,childCount);
