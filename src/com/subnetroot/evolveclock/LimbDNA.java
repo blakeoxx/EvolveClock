@@ -25,7 +25,7 @@ public class LimbDNA
 		limbList = new ArrayList<Byte>(genes.length);
 		for (int i=0; i<genes.length; i++)
 		{
-			byte thisGene = (new Byte(genes[i])).byteValue();
+			byte thisGene = Byte.parseByte(genes[i]);
 			byte attachment = (byte)(thisGene >> 2);
 			byte worldOrientation = (byte)(thisGene & 0b11);
 			if (attachment < 0 || attachment > LimbDNA.ATTACHMENT_MAX || worldOrientation < 0 || worldOrientation > 3) throw new Exception("Could not create LimbDNA. Gene "+i+" attachment or orientation out of bounds");
